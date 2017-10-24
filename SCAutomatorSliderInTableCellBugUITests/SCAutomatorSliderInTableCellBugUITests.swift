@@ -28,9 +28,12 @@ class SCAutomatorSliderInTableCellBugUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testTableViewCellSliderAdjustToNormalizedSliderPosition() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertTrue(XCUIApplication().tables.sliders["cellSlider"].exists)
+        XCUIApplication().tables.sliders["cellSlider"].adjust(toNormalizedSliderPosition: 0.75)
+        XCTAssertTrue(XCUIApplication().tables.staticTexts["0.75"].exists)
     }
     
 }

@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9e2-NP-hwI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Table View Controller-->
+        <scene sceneID="6Zz-5O-3Md">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="9e2-NP-hwI" customClass="TableViewController" customModule="SCAutomatorSliderInTableCellBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nJx-Tc-qSB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="Zdv-OX-yO2">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2YS-a9-BJE">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2YS-a9-BJE" id="eDG-mm-kDo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA4-PZ-DJv">
+                                                    <rect key="frame" x="16" y="11" width="37" height="21"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="tableCellLabel" label="Label"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="37" id="8G8-JC-Tmq"/>
+                                                        <constraint firstAttribute="height" constant="21" id="tLb-VX-jcr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CQf-I4-2EC">
+                                                    <rect key="frame" x="59" y="6" width="300" height="30"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="cellSlider" label="Slider"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="X9y-EC-qIy"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="9e2-NP-hwI" eventType="valueChanged" id="7uf-pC-12j"/>
+                                                    </connections>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kA4-PZ-DJv" secondAttribute="bottom" constant="1" id="D3a-nG-8zR"/>
+                                                <constraint firstItem="CQf-I4-2EC" firstAttribute="leading" secondItem="kA4-PZ-DJv" secondAttribute="trailing" constant="8" id="M0c-GT-GK4"/>
+                                                <constraint firstItem="kA4-PZ-DJv" firstAttribute="leading" secondItem="eDG-mm-kDo" secondAttribute="leadingMargin" id="Qgy-Z5-KVR"/>
+                                                <constraint firstAttribute="trailing" secondItem="CQf-I4-2EC" secondAttribute="trailing" constant="18" id="Vr9-a1-wdf"/>
+                                                <constraint firstAttribute="bottom" secondItem="CQf-I4-2EC" secondAttribute="bottom" constant="8.5" id="WIt-5h-Pke"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="9e2-NP-hwI" id="x0R-YK-bab"/>
+                            <outlet property="delegate" destination="9e2-NP-hwI" id="RdR-GV-OiU"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="label" destination="kA4-PZ-DJv" id="xsW-o6-alz"/>
+                        <outlet property="slider" destination="CQf-I4-2EC" id="JjI-Vx-lrz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUn-dE-zEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="145.27736131934034"/>
         </scene>
     </scenes>
 </document>
